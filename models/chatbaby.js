@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const ChatBaby = db.model('ChatBaby', { 
 	name: { type: String },
-	message: { type: String }
+	message: { type: String },
+	ip: { type: String }
 });
 
 module.exports = ChatBaby;

@@ -7,7 +7,8 @@ app.use(bodyParser.json());
 
 app.get('/api/chatbaby', (req, res) => {
 	// Send the tasks array to the user
-	ChatBaby.find().then((result) => {
+	console.log(req.connection.remoteAddress)
+	ChatBaby.find().select('_id name message').then((result) => {
 		console.log(result)
 		res.send(result)
 	})
@@ -15,7 +16,7 @@ app.get('/api/chatbaby', (req, res) => {
 
 app.post('/api/chatbaby', (req, res) => {
 	console.log(req.body)
-	let message = new ChatBaby ({ name: req.body.name, message: req.body.message })
+	let message = new ChatBaby ({ name: req.body.name, message: req.body.message, ip: req.connection.remoteAddress })
 	message.save((err, task) => {
 	  if (err) {
 	    console.log(err);
