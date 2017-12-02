@@ -21,7 +21,7 @@ app.post('/api/chatbaby', (req, res) => {
 	  if (err) {
 	    console.log(err);
 	  } else {
-	    console.log('Message created');
+	    console.log('Message created!');
 	  }
 	  res.send(message);
 	})
