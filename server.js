@@ -21,7 +21,7 @@ app.post('/api/chatbaby', (req, res) => {
 	  if (err) {
 	    console.log(err);
 	  } else {
-	    console.log('Message created');
+	    console.log('Message created!');
 	  }
 	  res.send(message);
 	})
@@ -41,4 +41,4 @@ app.delete('/api/chatbaby/:id', (req, res) => {
 });
 
 
-app.listen(8000, () => console.log('ChatBaby API Server listening on port 8000!'));
+app.listen(process.env.PORT || 8000, () => console.log('ChatBaby API Server listening!'));
